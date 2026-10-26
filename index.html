@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按书名或作者搜索书籍目录。">
+  <title>搜索书籍 · Books</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #dadce0;
+      --surface: #f8f9fa;
+      --link: #0969da;
+      --focus: #80b7f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar-inner, main { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { color: var(--ink); font-size: 22px; font-weight: 700; white-space: nowrap; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    nav a:hover { background: #eef0f2; text-decoration: none; }
+    nav a[aria-current="page"] {
+      color: var(--link);
+      border-color: var(--link);
+      background: #eef6ff;
+      font-weight: 700;
+    }
+    main { padding: 42px 0 32px; }
+    .eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+    h1 { margin: 0; font-size: clamp(30px, 6vw, 40px); line-height: 1.2; letter-spacing: -.025em; }
+    .intro { margin: 12px 0 24px; color: var(--muted); }
+    .search-row { display: flex; gap: 8px; }
+    input[type="search"] {
+      width: 100%;
+      min-width: 0;
+      min-height: 52px;
+      padding: 12px 15px;
+      border: 1px solid #9aa0a6;
+      border-radius: 10px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      font-size: 16px;
+    }
+    input[type="search"]:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: var(--link); }
+    button {
+      flex: 0 0 auto;
+      min-height: 52px;
+      padding: 0 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover { background: #eef0f2; }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    #results { display: grid; gap: 12px; }
+    .book { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .book h2 { margin: 0 0 6px; font-size: 20px; line-height: 1.45; overflow-wrap: anywhere; }
+    .book p { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+    .edition-block { margin-top: 14px; }
+    .edition-label { margin-bottom: 7px !important; color: var(--ink) !important; font-size: 14px; font-weight: 600; }
+    .edition-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .edition-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .message { padding: 18px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+    footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (max-width: 560px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 14px 0; gap: 10px; }
+      nav { gap: 8px; }
+      nav a { min-height: 46px; padding: 10px 14px; font-size: 16px; }
+      main { padding-top: 30px; }
+      .search-row { align-items: stretch; }
+      button { padding: 0 13px; }
+      .book { padding: 16px; }
+      .book h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./">Books</a>
+      <nav aria-label="Language">
+        <a id="lang-zh" href="?lang=zh-CN">简体中文</a>
+        <a id="lang-en" href="?lang=en">English</a>
+        <a id="lang-hant" href="?lang=zh-Hant">繁體中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="eyebrow">BOOK CATALOG</p>
+    <h1 id="heading">搜索书籍</h1>
+    <p class="intro" id="intro">输入书名或作者，结果会自动筛选。手机和电脑都可以使用。</p>
+
+    <div class="search-row">
+      <label class="sr-only" id="search-label" for="search">搜索书名或作者</label>
+      <input id="search" type="search" autocomplete="off" enterkeyhint="search" placeholder="例如：Needing to Know for Sure、Martin Seif">
+      <button id="clear" type="button">清空</button>
+    </div>
+    <div class="meta">
+      <span id="count" aria-live="polite">正在加载书目……</span>
+      <a id="catalog-link" href="./catalog.md">查看完整目录</a>
+    </div>
+
+    <section id="results" aria-label="搜索结果" aria-live="polite"></section>
+    <p id="error" class="message" hidden></p>
+
+    <footer>
+      <a href="https://github.com/eido77/books">GitHub 仓库</a>
+      <span aria-hidden="true"> · </span>
+      <span id="footer-text">书目以仓库目录为准。</span>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.4.2/dist/umd/full.js"></script>
+  <script>
+    "use strict";
+
+    const REPOSITORY_URL = "https://github.com/eido77/books";
+    const languageParam = new URLSearchParams(window.location.search).get("lang");
+    const language = ["zh-CN", "zh-Hant", "en"].includes(languageParam) ? languageParam : "zh-CN";
+
+    const messages = {
+      "zh-CN": {
+        heading: "搜索书籍",
+        intro: "输入书名或作者，结果会自动筛选。手机和电脑都可以使用。",
+        label: "搜索书名或作者",
+        placeholder: "例如：Needing to Know for Sure、Martin Seif",
+        clear: "清空",
+        loading: "正在加载书目……",
+        count: n => `找到 ${n} 本书`,
+        catalog: "查看完整目录",
+        empty: "没有找到匹配的书。试试书名、其他语言的书名或作者姓名。",
+        error: "暂时无法读取书目。你可以直接打开完整目录。",
+        editions: "版本语言",
+        editionNames: { "zh-CN": "简体中文", "zh-Hant": "繁體中文", "en": "English" },
+        footer: "书目以仓库目录为准。",
+        catalogPath: "catalog.md",
+        htmlLang: "zh-CN"
+      },
+      "zh-Hant": {
+        heading: "搜尋書籍",
+        intro: "輸入書名或作者，結果會自動篩選。手機和電腦都可以使用。",
+        label: "搜尋書名或作者",
+        placeholder: "例如：Needing to Know for Sure、Martin Seif",
+        clear: "清除",
+        loading: "正在載入書目……",
+        count: n => `找到 ${n} 本書`,
+        catalog: "查看完整目錄",
+        empty: "找不到符合的書籍。請嘗試其他語言的書名或作者姓名。",
+        error: "暫時無法讀取書目。你可以直接開啟完整目錄。",
+        editions: "版本語言",
+        editionNames: { "zh-CN": "簡體中文", "zh-Hant": "繁體中文", "en": "English" },
+        footer: "書目以倉庫目錄為準。",
+        catalogPath: "translations/zh-Hant/catalog.md",
+        htmlLang: "zh-Hant"
+      },
+      "en": {
+        heading: "Search Books",
+        intro: "Search by book title or author. Works on phones and computers.",
+        label: "Search by title or author",
+        placeholder: "e.g. Needing to Know for Sure, Martin Seif",
+        clear: "Clear",
+        loading: "Loading catalog…",
+        count: n => `${n} book(s) found`,
+        catalog: "Browse full catalog",
+        empty: "No matching books. Try another title or an author's name.",
+        error: "The catalog could not be loaded. You can open the full catalog directly.",
+        editions: "Available edition languages",
+        editionNames: { "zh-CN": "Simplified Chinese", "zh-Hant": "Traditional Chinese", "en": "English" },
+        footer: "The repository catalog is the source of truth.",
+        catalogPath: "translations/en/catalog.md",
+        htmlLang: "en"
+      }
+    };
+    const text = messages[language];
+
+    // Conversion happens locally in the browser; search terms are not sent to OpenCC.
+    // If the optional CDN library is unavailable, direct title and alias matching still works.
+    const toSimplified = typeof OpenCC !== "undefined"
+      ? OpenCC.Converter({ from: "tw", to: "cn" })
+      : null;
+    const toTraditional = typeof OpenCC !== "undefined"
+      ? OpenCC.Converter({ from: "cn", to: "tw" })
+      : null;
+
+    function normalize(value) {
+      return String(value ?? "").normalize("NFKC").toLocaleLowerCase().trim();
+    }
+
+    function variants(value) {
+      const values = [String(value ?? "")];
+      if (toSimplified) values.push(toSimplified(values[0]));
+      if (toTraditional) values.push(toTraditional(values[0]));
+      return [...new Set(values.map(normalize).filter(Boolean))];
+    }
+
+    function displayTitle(book) {
+      const simplified = book.titles["zh-CN"];
+      const traditional = book.titles["zh-Hant"];
+      const english = book.titles.en;
+      if (language === "en") {
+        return english || simplified || traditional || book.id;
+      }
+      if (language === "zh-Hant") {
+        return traditional && english ? `${traditional}（${english}）` : traditional || simplified || english || book.id;
+      }
+      return simplified && english ? `${simplified}（${english}）` : simplified || traditional || english || book.id;
+    }
+
+    function editionLanguages(book) {
+      const known = new Set(Object.keys(text.editionNames));
+      return [...new Set((book.editions || []).map(edition => edition.language).filter(code => known.has(code)))];
+    }
+
+    function makeElement(tag, className, content) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (content !== undefined) element.textContent = content;
+      return element;
+    }
+
+    function renderBook(book) {
+      const card = makeElement("article", "book");
+      const heading = makeElement("h2");
+      const link = makeElement("a", "", displayTitle(book));
+      link.href = new URL(book.detailPath, window.location.href).href;
+      heading.append(link);
+
+      const author = makeElement("p", "", (book.authors || []).join("、"));
+      card.append(heading, author);
+
+      const editions = editionLanguages(book);
+      if (editions.length) {
+        const block = makeElement("div", "edition-block");
+        block.append(makeElement("p", "edition-label", text.editions));
+        const list = makeElement("div", "edition-list");
+        for (const code of editions) {
+          list.append(makeElement("span", "edition-pill", text.editionNames[code]));
+        }
+        block.append(list);
+        card.append(block);
+      }
+      return card;
+    }
+
+    function render(books) {
+      const queryTerms = normalize(searchInput.value).split(/\s+/).filter(Boolean);
+      const filtered = books.filter(book => {
+        const searchableValues = [
+          book.id,
+          ...(Object.values(book.titles || {})),
+          ...(book.authors || []),
+          ...(book.searchAliases || [])
+        ];
+        const searchableVariants = searchableValues.flatMap(variants);
+        return queryTerms.every(term =>
+          variants(term).some(queryVariant =>
+            searchableVariants.some(value => value.includes(queryVariant))
+          )
+        );
+      });
+
+      results.replaceChildren();
+      error.hidden = true;
+      count.textContent = text.count(filtered.length);
+
+      if (!filtered.length) {
+        results.append(makeElement("div", "message", queryTerms.length ? text.empty : text.empty));
+        return;
+      }
+      for (const book of filtered) results.append(renderBook(book));
+    }
+
+    document.documentElement.lang = text.htmlLang;
+    document.title = `${text.heading} · Books`;
+    document.getElementById("heading").textContent = text.heading;
+    document.getElementById("intro").textContent = text.intro;
+    document.getElementById("search-label").textContent = text.label;
+    document.getElementById("search").placeholder = text.placeholder;
+    document.getElementById("clear").textContent = text.clear;
+    document.getElementById("count").textContent = text.loading;
+    document.getElementById("catalog-link").textContent = text.catalog;
+    document.getElementById("catalog-link").href = new URL(text.catalogPath, window.location.href).href;
+    document.getElementById("footer-text").textContent = text.footer;
+    for (const [id, code] of [["lang-zh", "zh-CN"], ["lang-en", "en"], ["lang-hant", "zh-Hant"]]) {
+      const link = document.getElementById(id);
+      if (code === language) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    }
+
+    const searchInput = document.getElementById("search");
+    const results = document.getElementById("results");
+    const count = document.getElementById("count");
+    const error = document.getElementById("error");
+
+    document.getElementById("clear").addEventListener("click", () => {
+      searchInput.value = "";
+      loadAndRender();
+      searchInput.focus();
+    });
+
+    let isComposing = false;
+    searchInput.addEventListener("compositionstart", () => { isComposing = true; });
+    searchInput.addEventListener("compositionend", () => {
+      isComposing = false;
+      loadAndRender();
+    });
+    searchInput.addEventListener("input", event => {
+      if (!isComposing && !event.isComposing) loadAndRender();
+    });
+
+    let allBooks = null;
+    async function loadAndRender() {
+      if (allBooks !== null) {
+        render(allBooks);
+        return;
+      }
+      try {
+        const response = await fetch("./book-catalog.json", { cache: "no-cache" });
+        if (!response.ok) throw new Error("Book catalog request failed.");
+        const catalog = await response.json();
+        if (!catalog || !Array.isArray(catalog.books)) throw new Error("Invalid catalog structure.");
+        allBooks = catalog.books.filter(book =>
+          book && typeof book.id === "string" &&
+          book.titles && typeof book.titles === "object" &&
+          typeof book.detailPath === "string"
+        );
+        render(allBooks);
+      } catch {
+        count.textContent = "";
+        error.replaceChildren(document.createTextNode(text.error + " "));
+        const fallback = document.createElement("a");
+        fallback.href = new URL(text.catalogPath, window.location.href).href;
+        fallback.textContent = text.catalog;
+        error.append(fallback);
+        error.hidden = false;
+      }
+    }
+
+    loadAndRender();
+  </script>
+</body>
+</html>

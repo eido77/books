@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "id": "needing-to-know-for-sure",
+      "titles": {
+        "zh-CN": "非要确定不可",
+        "zh-Hant": "非要確定不可",
+        "en": "Needing to Know for Sure"
+      },
+      "authors": [
+        "Martin N. Seif",
+        "Sally M. Winston"
+      ],
+      "searchAliases": [],
+      "detailPath": "library/needing-to-know-for-sure/README.md",
+      "editions": [],
+      "sources": []
+    }
+  ]
+}
