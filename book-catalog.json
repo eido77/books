@@ -14,7 +14,18 @@
       ],
       "searchAliases": [],
       "detailPath": "library/needing-to-know-for-sure/README.md",
-      "editions": [],
+      "editions": [
+        {
+          "language": "zh-CN",
+          "format": "EPUB",
+          "path": "library/needing-to-know-for-sure/editions/zh-CN/非要确定不可（简体中文）.epub"
+        },
+        {
+          "language": "zh-Hant",
+          "format": "EPUB",
+          "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.epub"
+        }
+      ],
       "sources": []
     }
   ]

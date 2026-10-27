@@ -6,4 +6,10 @@
 
 ## 获取电子书
 
-目前尚未登记可用的电子书版本。准备好实际文件并确认链接有效后，再在此处列出对应格式和获取方式。
+### 简体中文
+
+- **EPUB：** [GitHub](editions/zh-CN/非要确定不可（简体中文）.epub) · [Proton Drive](https://drive.proton.me/urls/TDM1CMPN30#2ou0kgzYVZzb)
+
+### 繁體中文
+
+- **EPUB：** [GitHub](editions/zh-Hant/非要確定不可（繁體中文）.epub) · [Proton Drive](https://drive.proton.me/urls/3QKE1XVNZR#Aa4kO75IwSFK)
