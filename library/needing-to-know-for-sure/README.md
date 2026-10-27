@@ -8,8 +8,12 @@
 
 ### 简体中文
 
-- **EPUB：** [GitHub](editions/zh-CN/非要确定不可（简体中文）.epub) · [Proton Drive](https://drive.proton.me/urls/TDM1CMPN30#2ou0kgzYVZzb)
+- **EPUB：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-CN/%E9%9D%9E%E8%A6%81%E7%A1%AE%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%EF%BC%89.epub) · [Proton Drive](https://drive.proton.me/urls/TDM1CMPN30#2ou0kgzYVZzb)
+
+*如无法在 GitHub App 中下载，请使用浏览器打开此页面。*
 
 ### 繁體中文
 
-- **EPUB：** [GitHub](editions/zh-Hant/非要確定不可（繁體中文）.epub) · [Proton Drive](https://drive.proton.me/urls/3QKE1XVNZR#Aa4kO75IwSFK)
+- **EPUB：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-Hant/%E9%9D%9E%E8%A6%81%E7%A2%BA%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%EF%BC%89.epub) · [Proton Drive](https://drive.proton.me/urls/3QKE1XVNZR#Aa4kO75IwSFK)
+
+*如無法在 GitHub App 中下載，請使用瀏覽器開啟此頁面。*
