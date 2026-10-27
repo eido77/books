@@ -2,7 +2,7 @@
 
 # 搜尋書籍
 
-開啟[書籍搜尋頁面](https://eido77.github.io/books/?lang=zh-Hant)，按書名或作者查找。
+開啟[書籍搜尋頁面](https://eido77.github.io/books/?lang=zh-Hant)，按書名或作者搜尋。
 
 也可以瀏覽[完整書籍目錄](catalog.md)。
 

@@ -2,7 +2,7 @@
 
 # 搜索书籍
 
-打开[书籍搜索页面](https://eido77.github.io/books/)按书名或作者查找。
+打开[书籍搜索页面](https://eido77.github.io/books/)，按书名或作者查找。
 
 也可以浏览[完整书籍目录](catalog.md)。
 
