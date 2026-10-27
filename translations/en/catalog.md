@@ -6,4 +6,4 @@ Open the [book search page](https://eido77.github.io/books/?lang=en) to search b
 
 | Title | Author |
 | --- | --- |
-| [Needing to Know for Sure](../../library/needing-to-know-for-sure/README.md) | Martin N. Seif; Sally M. Winston |
+| [Needing to Know for Sure](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) | Martin N. Seif; Sally M. Winston |

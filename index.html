@@ -115,6 +115,7 @@
       color: var(--ink);
       font-size: 14px;
     }
+    a.edition-pill:hover { border-color: var(--link); background: #eef6ff; text-decoration: none; }
     .message { padding: 18px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
     footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -154,7 +155,7 @@
     </div>
     <div class="meta">
       <span id="count" aria-live="polite">正在加载书目……</span>
-      <a id="catalog-link" href="./catalog.md">查看完整目录</a>
+      <a id="catalog-link" href="https://github.com/eido77/books/blob/main/catalog.md">查看完整目录</a>
     </div>
 
     <section id="results" aria-label="搜索结果" aria-live="polite"></section>
@@ -263,9 +264,19 @@
       return simplified && english ? `${simplified}（${english}）` : simplified || traditional || english || book.id;
     }
 
-    function editionLanguages(book) {
-      const known = new Set(Object.keys(text.editionNames));
-      return [...new Set((book.editions || []).map(edition => edition.language).filter(code => known.has(code)))];
+    function repositoryFolderUrl(detailPath) {
+      const folderPath = String(detailPath || "").replace("/README.md", "");
+      return new URL(`tree/main/${folderPath}`, `${REPOSITORY_URL}/`).href;
+    }
+
+    function repositoryFileUrl(filePath) {
+      const path = String(filePath || "");
+      return new URL(`blob/main/${path}`, `${REPOSITORY_URL}/`).href;
+    }
+
+    function repositoryRawFileUrl(filePath) {
+      const path = String(filePath || "");
+      return new URL(path, "https://raw.githubusercontent.com/eido77/books/main/").href;
     }
 
     function makeElement(tag, className, content) {
@@ -279,19 +290,27 @@
       const card = makeElement("article", "book");
       const heading = makeElement("h2");
       const link = makeElement("a", "", displayTitle(book));
-      link.href = new URL(book.detailPath, window.location.href).href;
+      link.href = repositoryFolderUrl(book.detailPath);
       heading.append(link);
 
       const author = makeElement("p", "", (book.authors || []).join("、"));
       card.append(heading, author);
 
-      const editions = editionLanguages(book);
+      const knownEditionLanguages = new Set(Object.keys(text.editionNames));
+      const editions = (book.editions || []).filter(edition =>
+        edition && knownEditionLanguages.has(edition.language) &&
+        typeof edition.path === "string" && edition.path.length > 0
+      );
       if (editions.length) {
         const block = makeElement("div", "edition-block");
         block.append(makeElement("p", "edition-label", text.editions));
         const list = makeElement("div", "edition-list");
-        for (const code of editions) {
-          list.append(makeElement("span", "edition-pill", text.editionNames[code]));
+        for (const edition of editions) {
+          const format = String(edition.format || "").toUpperCase();
+          const label = format ? `${text.editionNames[edition.language]} · ${format}` : text.editionNames[edition.language];
+          const pill = makeElement("a", "edition-pill", label);
+          pill.href = repositoryRawFileUrl(edition.path);
+          list.append(pill);
         }
         block.append(list);
         card.append(block);
@@ -336,7 +355,7 @@
     document.getElementById("clear").textContent = text.clear;
     document.getElementById("count").textContent = text.loading;
     document.getElementById("catalog-link").textContent = text.catalog;
-    document.getElementById("catalog-link").href = new URL(text.catalogPath, window.location.href).href;
+    document.getElementById("catalog-link").href = repositoryFileUrl(text.catalogPath);
     document.getElementById("footer-text").textContent = text.footer;
     for (const [id, code] of [["lang-zh", "zh-CN"], ["lang-en", "en"], ["lang-hant", "zh-Hant"]]) {
       const link = document.getElementById(id);
@@ -386,7 +405,7 @@
         count.textContent = "";
         error.replaceChildren(document.createTextNode(text.error + " "));
         const fallback = document.createElement("a");
-        fallback.href = new URL(text.catalogPath, window.location.href).href;
+        fallback.href = repositoryFileUrl(text.catalogPath);
         fallback.textContent = text.catalog;
         error.append(fallback);
         error.hidden = false;
