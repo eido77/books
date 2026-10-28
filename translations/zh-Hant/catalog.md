@@ -4,6 +4,8 @@
 
 開啟[書籍搜尋頁面](https://eido77.github.io/books/?lang=zh-Hant)，可按書名或作者搜尋；完整書目見下表。
 
+<p><small><em>標記說明：✦ 表示該電子版由本專案製作；這不代表本專案創作了原著或譯文。</em></small></p>
+
 | 書名 | 作者 |
 | --- | --- |
-| [非要確定不可（Needing to Know for Sure）](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) | Martin N. Seif、Sally M. Winston |
+| [非要確定不可（Needing to Know for Sure）](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) ✦ | Martin N. Seif、Sally M. Winston |

@@ -2,8 +2,10 @@
 
 # 书籍目录
 
-打开[书籍搜索页面](https://eido77.github.io/books/)可按书名或作者搜索；完整书目见下表。
+打开[书籍搜索页面](https://eido77.github.io/books/)，可按书名或作者搜索；完整书目见下表。
+
+<p><small><em>标记说明：✦ 表示该电子版由本项目制作；这不表示本项目创作了原著或译文。</em></small></p>
 
 | 书名 | 作者 |
 | --- | --- |
-| [非要确定不可（Needing to Know for Sure）](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) | Martin N. Seif、Sally M. Winston |
+| [非要确定不可（Needing to Know for Sure）](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) ✦ | Martin N. Seif、Sally M. Winston |
