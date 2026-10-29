@@ -21,9 +21,19 @@
           "path": "library/needing-to-know-for-sure/editions/zh-CN/非要确定不可（简体中文）.epub"
         },
         {
+          "language": "zh-CN",
+          "format": "PDF",
+          "path": "library/needing-to-know-for-sure/editions/zh-CN/非要确定不可（简体中文）.pdf"
+        },
+        {
           "language": "zh-Hant",
           "format": "EPUB",
           "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.epub"
+        },
+        {
+          "language": "zh-Hant",
+          "format": "PDF",
+          "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.pdf"
         }
       ],
       "sources": []
