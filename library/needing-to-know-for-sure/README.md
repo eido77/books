@@ -19,3 +19,9 @@
 - **PDF：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-Hant/%E9%9D%9E%E8%A6%81%E7%A2%BA%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%EF%BC%89.pdf) · [Proton Drive](https://drive.proton.me/urls/0TENMX6370#1SnItMhLNi2g)
 
 *如無法在 GitHub App 中下載，請使用瀏覽器開啟此頁面。*
+
+### English
+
+- **EPUB:** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/en/Needing%20to%20Know%20for%20Sure.epub) · [Proton Drive](https://drive.proton.me/urls/RAEE6FVJ14#MP3AItkviq0H)
+
+*If you cannot download the file in the GitHub App, please open this page in a browser.*

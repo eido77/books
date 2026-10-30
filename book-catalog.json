@@ -34,6 +34,11 @@
           "language": "zh-Hant",
           "format": "PDF",
           "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.pdf"
+        },
+        {
+          "language": "en",
+          "format": "EPUB",
+          "path": "library/needing-to-know-for-sure/editions/en/Needing to Know for Sure.epub"
         }
       ],
       "sources": []
