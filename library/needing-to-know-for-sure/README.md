@@ -8,20 +8,21 @@
 
 ### 简体中文
 
-- **EPUB：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-CN/%E9%9D%9E%E8%A6%81%E7%A1%AE%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%EF%BC%89.epub) · [Proton Drive](https://drive.proton.me/urls/TDM1CMPN30#2ou0kgzYVZzb)
-- **PDF：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-CN/%E9%9D%9E%E8%A6%81%E7%A1%AE%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%EF%BC%89.pdf) · [Proton Drive](https://drive.proton.me/urls/QVVN6B7QH0#O593XgpUuRVt)
+- **EPUB：** [Google Drive](https://drive.google.com/file/d/18Wt6bXzOaswk_K6zJgaUAsYZ5BJt1pRz/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/TDM1CMPN30#2ou0kgzYVZzb)
+- **PDF：** [Google Drive](https://drive.google.com/file/d/1uFlpvkbG9jQsiL_iCjKcSy6qUotR4FgC/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/QVVN6B7QH0#O593XgpUuRVt)
 
 *如无法在 GitHub App 中下载，请使用浏览器打开此页面。*
 
 ### 繁體中文
 
-- **EPUB：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-Hant/%E9%9D%9E%E8%A6%81%E7%A2%BA%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%EF%BC%89.epub) · [Proton Drive](https://drive.proton.me/urls/3QKE1XVNZR#Aa4kO75IwSFK)
-- **PDF：** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/zh-Hant/%E9%9D%9E%E8%A6%81%E7%A2%BA%E5%AE%9A%E4%B8%8D%E5%8F%AF%EF%BC%88%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%EF%BC%89.pdf) · [Proton Drive](https://drive.proton.me/urls/0TENMX6370#1SnItMhLNi2g)
+- **EPUB：** [Google Drive](https://drive.google.com/file/d/12ckEhmdgdDRfXN0KZifaphDtGJK1SaGJ/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/3QKE1XVNZR#Aa4kO75IwSFK)
+- **PDF：** [Google Drive](https://drive.google.com/file/d/1N9F3_NAsADVOs7SrUfgTZYLBlKcIKBi0/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/0TENMX6370#1SnItMhLNi2g)
 
 *如無法在 GitHub App 中下載，請使用瀏覽器開啟此頁面。*
 
 ### English
 
-- **EPUB:** [GitHub](https://raw.githubusercontent.com/eido77/books/main/library/needing-to-know-for-sure/editions/en/Needing%20to%20Know%20for%20Sure.epub) · [Proton Drive](https://drive.proton.me/urls/RAEE6FVJ14#MP3AItkviq0H)
+- **EPUB:** [Google Drive](https://drive.google.com/file/d/1J6IR7rtl2aGQ8gd9cVuDucUGW90fkne/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/RAEE6FVJ14#MP3AItkviq0H)
+- **PDF:** [Google Drive](https://drive.google.com/file/d/1Mt0HjbUkoCWB-FJol14KbL12WqXyiXwB/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/WG0MSHXK74#JxIy5eKrvtYo)
 
 *If you cannot download the file in the GitHub App, please open this page in a browser.*
