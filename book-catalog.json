@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "books": [
     {
       "id": "needing-to-know-for-sure",
@@ -17,28 +17,27 @@
       "editions": [
         {
           "language": "zh-CN",
-          "format": "EPUB",
-          "path": "library/needing-to-know-for-sure/editions/zh-CN/非要确定不可（简体中文）.epub"
+          "format": "EPUB"
         },
         {
           "language": "zh-CN",
-          "format": "PDF",
-          "path": "library/needing-to-know-for-sure/editions/zh-CN/非要确定不可（简体中文）.pdf"
+          "format": "PDF"
         },
         {
           "language": "zh-Hant",
-          "format": "EPUB",
-          "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.epub"
+          "format": "EPUB"
         },
         {
           "language": "zh-Hant",
-          "format": "PDF",
-          "path": "library/needing-to-know-for-sure/editions/zh-Hant/非要確定不可（繁體中文）.pdf"
+          "format": "PDF"
         },
         {
           "language": "en",
-          "format": "EPUB",
-          "path": "library/needing-to-know-for-sure/editions/en/Needing to Know for Sure.epub"
+          "format": "EPUB"
+        },
+        {
+          "language": "en",
+          "format": "PDF"
         }
       ],
       "sources": []
