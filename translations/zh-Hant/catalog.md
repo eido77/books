@@ -8,4 +8,4 @@
 
 | 書名 | 作者 |
 | --- | --- |
-| [非要確定不可（Needing to Know for Sure）](https://github.com/eido77/books/tree/main/library/needing-to-know-for-sure) ✦ | Martin N. Seif、Sally M. Winston |
+| [非要確定不可（Needing to Know for Sure）](https://github.com/eido77/books/blob/main/library/needing-to-know-for-sure/README.md) ✦ | Martin N. Seif、Sally M. Winston |

@@ -263,9 +263,9 @@
       return simplified && english ? `${simplified}（${english}）` : simplified || traditional || english || book.id;
     }
 
-    function repositoryFolderUrl(detailPath) {
-      const folderPath = String(detailPath || "").replace("/README.md", "");
-      return new URL(`tree/main/${folderPath}`, `${REPOSITORY_URL}/`).href;
+    function repositoryReadmeUrl(detailPath) {
+      const readmePath = String(detailPath || "").replace(/^\/+/, "");
+      return new URL(`blob/main/${readmePath}`, `${REPOSITORY_URL}/`).href;
     }
 
     function repositoryFileUrl(filePath) {
@@ -284,7 +284,7 @@
       const card = makeElement("article", "book");
       const heading = makeElement("h2");
       const link = makeElement("a", "", displayTitle(book));
-      link.href = repositoryFolderUrl(book.detailPath);
+      link.href = repositoryReadmeUrl(book.detailPath);
       heading.append(link);
 
       const author = makeElement("p", "", (book.authors || []).join("、"));
