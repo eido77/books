@@ -20,6 +20,6 @@
 
 ### English
 
-- **EPUB:** [Google Drive](https://drive.google.com/file/d/1J6IR7rtl2aGQ8gd9cVuDucUGW90fkne/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/RAEE6FVJ14#MP3AItkviq0H)
+- **EPUB:** [Google Drive](https://drive.google.com/file/d/1J6IR7rtl2aGQ8gdG9cVuDucUGW90fkne/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/RAEE6FVJ14#MP3AItkviq0H)
 - **PDF:** [Google Drive](https://drive.google.com/file/d/1Mt0HjbUkoCWB-FJol14KbL12WqXyiXwB/view?usp=drivesdk) · [Proton Drive](https://drive.proton.me/urls/WG0MSHXK74#JxIy5eKrvtYo)
 
